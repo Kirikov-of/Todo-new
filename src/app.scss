@@ -1,0 +1,235 @@
+* {
+  font-family: "Noticia Text", serif;
+  border: none;
+  outline: none;
+}
+
+.todo {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1060px;
+  height: 790px;
+  background: #f7f7f7;
+  border-radius: 15px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin-top: 25px;
+    list-style: none;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    li {
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 25px;
+      color: #0b0b0b;
+    }
+
+    .circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50px;
+      margin-right: 10px;
+      margin-top: 3px;
+
+      &-orange {
+        background: #ec9f2b;
+      }
+
+      &-yellow {
+        background: #c2c54f;
+      }
+
+      &-blue {
+        background: #339494;
+      }
+
+      &-green {
+        background: #419433;
+      }
+
+      &-red {
+        background: #f90000;
+      }
+    }
+  }
+
+  &_categories {
+    width: 340px;
+    background: #1d6bf3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+  }
+
+  &_category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 240px;
+    height: 37px;
+    background: #f1f1f1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    cursor: pointer;
+
+    &:active {
+      transform: translateY(3px);
+      transition: all 0.1s;
+    }
+  }
+
+  &_addCategory {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    cursor: pointer;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-style: italic;
+      font-weight: normal;
+      font-size: 20px;
+      color: #f1f1f1;
+      text-decoration: none;
+
+      &:active {
+        transform: translateY(3px);
+        transition: 0.1s;
+      }
+    }
+  }
+
+  &_list {
+    width: 720px;
+
+    h1 {
+      margin-top: 45px;
+      margin-bottom: 0px;
+      margin-left: 35px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 34px;
+      color: #2fe6ff;
+    }
+  }
+
+  &_addTask {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    input {
+      background: #f1f1f1;
+      border-radius: 15px 0px 0px 15px;
+      width: 560px;
+      height: 35px;
+      padding: 0px 0px 0px 10px;
+      font-style: italic;
+      font-weight: normal;
+      font-size: 18px;
+
+      &::placeholder {
+        color: #808080;
+      }
+    }
+
+    button {
+      width: 100px;
+      height: 35px;
+      background: #f1f1f1;
+      border-radius: 0px 15px 15px 0px;
+      font-style: italic;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 25px;
+      color: #808080;
+      cursor: pointer;
+      padding: 0;
+
+      &:active {
+        transform: translateY(1px);
+        transition: all 0.1s;
+      }
+    }
+  }
+
+  &_tasks {
+    display: block;
+  }
+
+  &_task {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    padding: 0px 20px;
+    height: 35px;
+
+    h2 {
+      flex: 1 1;
+      margin-left: 10px;
+      font-style: italic;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 25px;
+      color: #1f1f1f;
+    }
+
+    .trash {
+      background: #f7f7f7;
+      cursor: pointer;
+
+      &:hover {
+        path {
+          fill: #1f1f1f;
+        }
+      }
+    }
+
+    &-complite {
+      text-decoration-line: line-through;
+
+      .circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24.13px;
+        height: 24px;
+        border-radius: 50px;
+        background: #1d6bf3;
+        cursor: pointer;
+        border: 1px solid #1d6bf3;
+      }
+    }
+
+    &-uncomplite {
+      .circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24.13px;
+        height: 24px;
+        border-radius: 50px;
+        background-color: #f1f1f1;
+        border: 1px solid #cccccc;
+        cursor: pointer;
+
+        &:hover {
+          background: #1d6bf3;
+          border: 1px solid #1d6bf3;
+        }
+      }
+    }
+  }
+}
