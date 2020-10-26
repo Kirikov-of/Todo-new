@@ -16,10 +16,17 @@ function NewTask({ onAddText }) {
     }
   };
 
+  const enterTask = (e) => {
+    if (e.keyCode === 13) {
+      addTask();
+    }
+  };
+
   return (
     <div className="todo_addTask">
       <input
         type="text"
+        onKeyUp={enterTask}
         placeholder="Добавить задачу..."
         value={Text}
         onChange={inputTask}
