@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-function Task() {
+function Task({ item, complited }) {
   return (
     <div className="todo_task todo_task-complite">
       <div className="circle">
@@ -20,7 +20,7 @@ function Task() {
           />
         </svg>
       </div>
-      <h2>Сделать дизайн Todo</h2>
+      <h2>{item}</h2>
       <Button className="trash">
         <svg
           width="19"

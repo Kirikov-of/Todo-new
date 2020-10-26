@@ -10,11 +10,10 @@ function Categories({ items }) {
             <li>{item}</li>
           </Button>
         ))}
-        ;
       </ul>
 
       <div className="todo_addCategory">
-        <a href="#">Добавить категорию</a>
+        <a>Добавить категорию</a>
       </div>
     </div>
   );
