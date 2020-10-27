@@ -34,17 +34,47 @@ function App() {
       }
     ])}
 
+    const toggleComplited = (index) => {
+      SetTask((prevTask) => prevTask.map((task, currIndex) => {
+        if(index === currIndex) {
+          return {
+            ...task,
+            complited: !task.complited
+          }
+        }
+        return task
+      }))
+    }
+
+    const onRemoveItem = (index) => {
+      SetTask((prevTask) => prevTask.filter((_, currIndex) => {
+        if(index !== currIndex) {
+          return true
+        }
+        return false
+      }))
+    }
+
 
   return (
     <div className="todo">
       <Categories items={categoryName} />
       <div className="todo_list">
         <h1>Frontend</h1>
-        <NewTask onAddText={onAddText}/>
+        <NewTask 
+          onAddText={onAddText} 
+          />
         <div className="todo_tasks">
           {
             task.map((item,index) => 
-              (<Task item={item.text} index={index} key={`${item}_${index}`} complited={item.complited}/>)
+              (<Task 
+                item={item.text} 
+                index={index} 
+                key={`${item}_${index}`} 
+                complited={item.complited} 
+                toggleComplited={toggleComplited} 
+                onRemoveItem={onRemoveItem}
+              />)
             )
           }
         </div>

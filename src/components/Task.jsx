@@ -1,10 +1,20 @@
 import React from "react";
 import Button from "./Button";
 
-function Task({ item, complited }) {
+function Task({ item, complited, toggleComplited, index, onRemoveItem }) {
+  const removeItem = () => {
+    if (global.confirm("Вы точно хотите удалить задачу?")) {
+      onRemoveItem(index);
+    }
+  };
+
   return (
-    <div className="todo_task todo_task-complite">
-      <div className="circle">
+    <div
+      className={`todo_task ${
+        complited ? "todo_task-complite" : "todo_task-uncomplite"
+      }`}
+    >
+      <div className="circle" onClick={() => toggleComplited(index)}>
         <svg
           width="15"
           height="15"
@@ -21,7 +31,7 @@ function Task({ item, complited }) {
         </svg>
       </div>
       <h2>{item}</h2>
-      <Button className="trash">
+      <button className="trash" onClick={() => removeItem(index)}>
         <svg
           width="19"
           height="20"
@@ -34,7 +44,7 @@ function Task({ item, complited }) {
             fill="#7C7C7C"
           />
         </svg>
-      </Button>
+      </button>
     </div>
   );
 }
