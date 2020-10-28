@@ -17,13 +17,35 @@ function App() {
     },
   ]);
 
-  const categoryName = [
-    "Все задачи",
-    "Frontend",
-    "Backend",
-    "Покупки",
-    "Срочные",
-  ];
+  const [categories, SetCategories] = React.useState([
+    {
+      name: 'Все задачи',
+      background: '#EC9F2B'
+    },
+    {
+      name: 'Frontend',
+      background: '#C2C54F'
+    },
+    {
+      name: 'Backend',
+      background: '#339494'
+    },
+    {
+      name: 'Покупки',
+      background: '#419433'
+    },
+    {
+      name: 'Срочные',
+      background: '#F90000'
+    }
+  ])
+
+  const addCategory = (name) => {
+    SetCategories((prevCategory) => [
+      ...prevCategory,
+        name
+    ])
+  }
 
   const onAddText = (text) => {
     SetTask((prevTask) => [
@@ -58,7 +80,7 @@ function App() {
 
   return (
     <div className="todo">
-      <Categories items={categoryName} />
+      <Categories items={categories} addCategory={addCategory}/>
       <div className="todo_list">
         <h1>Frontend</h1>
         <NewTask 

@@ -31,7 +31,7 @@ function Task({ item, complited, toggleComplited, index, onRemoveItem }) {
         </svg>
       </div>
       <h2>{item}</h2>
-      <button className="trash" onClick={() => removeItem(index)}>
+      <Button className="trash" removeItem={() => removeItem(index)}>
         <svg
           width="19"
           height="20"
@@ -44,7 +44,7 @@ function Task({ item, complited, toggleComplited, index, onRemoveItem }) {
             fill="#7C7C7C"
           />
         </svg>
-      </button>
+      </Button>
     </div>
   );
 }
