@@ -1,10 +1,17 @@
 import React from "react";
 
-function Button({ children, className, addTask, addCategory, removeItem }) {
+function Button({
+  children,
+  className,
+  addTask,
+  addCategory,
+  removeItem,
+  toggleVisible,
+}) {
   return (
     <button
       className={className}
-      onClick={addTask || addCategory || removeItem}
+      onClick={addTask || addCategory || removeItem || toggleVisible}
     >
       {children}
     </button>

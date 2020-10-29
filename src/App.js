@@ -1,8 +1,10 @@
 import React from 'react'
-import "./app.scss";
-import Categories from "./components/Categories";
+import Categories from "./components/Categories/Categories";
 import NewTask from "./components/NewTask";
 import Task from "./components/Task";
+
+import "./app.scss";
+import DB from './assets/colors.json'
 
 function App() {
 
@@ -18,10 +20,6 @@ function App() {
   ]);
 
   const [categories, SetCategories] = React.useState([
-    {
-      name: 'Все задачи',
-      background: '#EC9F2B'
-    },
     {
       name: 'Frontend',
       background: '#C2C54F'
@@ -80,13 +78,13 @@ function App() {
 
   return (
     <div className="todo">
-      <Categories items={categories} addCategory={addCategory}/>
+      <Categories items={categories} addCategory={addCategory} colors={DB.colors}/>
       <div className="todo_list">
         <h1>Frontend</h1>
         <NewTask 
           onAddText={onAddText} 
           />
-        <div className="todo_tasks">
+        
           {
             task.map((item,index) => 
               (<Task 
@@ -99,7 +97,7 @@ function App() {
               />)
             )
           }
-        </div>
+        
       </div>
     </div>
   );

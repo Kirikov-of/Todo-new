@@ -1,0 +1,107 @@
+.todo_popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+  left: 20px;
+  top: -200px;
+  width: 240px;
+  min-height: 150px;
+  background: #f1f1f1;
+  border-radius: 15px;
+
+  .newField {
+    width: 220px;
+    height: 30px;
+    background: #efefef;
+    border: 1px solid #b8b8c8;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding-left: 8px;
+    font-size: 16px;
+
+    &::placeholder {
+      font-weight: normal;
+      font-size: 16px;
+      color: #000000;
+    }
+  }
+
+  .color {
+    display: flex;
+    width: 220px;
+    height: 30px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+
+    .colors {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 30px;
+      position: relative;
+      border: 2px solid transparent;
+
+      &.active {
+        border: 2px solid #525252;
+      }
+
+      &--mango {
+        background-color: #fc856c;
+      }
+
+      &--orange {
+        background-color: #febb5b;
+      }
+
+      &--lime {
+        background-color: #c9fc6f;
+      }
+
+      &--green {
+        background-color: #22e51c;
+      }
+
+      &--ocean {
+        background-color: #20f5e8;
+      }
+
+      &--celestial {
+        background-color: #41c2fa;
+      }
+
+      &--orris {
+        background-color: #8fa6fd;
+      }
+
+      &--fuchsia {
+        background-color: #f140ff;
+      }
+
+      &--deeppink {
+        background-color: #c71585;
+      }
+    }
+  }
+
+  button {
+    width: 140px;
+    height: 30px;
+    background: #f1f1f1;
+    border: 1px solid #b8b8c8;
+    box-sizing: border-box;
+    border-radius: 15px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #000000;
+    cursor: pointer;
+
+    &:hover {
+      background: #1d6bf3;
+      color: #f1f1f1;
+    }
+  }
+}

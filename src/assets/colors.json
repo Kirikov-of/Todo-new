@@ -1,0 +1,13 @@
+{
+    "colors": [
+        {"id": 1, "hex": "#FC856C", "name": "mango"},
+        {"id": 2, "hex": "#FEBB5B", "name": "orange"},
+        {"id": 3, "hex": "#C9FC6F", "name": "lime"},
+        {"id": 4, "hex": "#22E51C", "name": "green"},
+        {"id": 5, "hex": "#20F5E8", "name": "ocean"},
+        {"id": 6, "hex": "#41C2FA", "name": "celestial"},
+        {"id": 7, "hex": "#8FA6FD", "name": "orris"},
+        {"id": 8, "hex": "#F140FF", "name": "fuchsia"},
+        {"id": 9, "hex": "#C71585", "name": "deeppink"}
+    ]
+}
