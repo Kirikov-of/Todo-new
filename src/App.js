@@ -22,19 +22,24 @@ function App() {
   const [categories, SetCategories] = React.useState([
     {
       name: 'Frontend',
-      background: '#C2C54F'
+      hex: '#C2C54F',
+      color: 'yellow'
+
     },
     {
       name: 'Backend',
-      background: '#339494'
+      hex: '#339494',
+      color: 'blue'
     },
     {
       name: 'Покупки',
-      background: '#419433'
+      hex: '#419433',
+      color: 'green'
     },
     {
       name: 'Срочные',
-      background: '#F90000'
+      hex: '#F90000',
+      color: 'red'
     }
   ])
 

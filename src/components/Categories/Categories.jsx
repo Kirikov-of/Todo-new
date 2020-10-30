@@ -25,10 +25,7 @@ function Categories({ items, addCategory, colors }) {
       <ul>
         {items.map((item, index) => (
           <Button key={`${item.name}_${index}`} className="todo_category">
-            <div
-              className="circle"
-              style={{ background: `${item.background}` }}
-            ></div>
+            <Colors color={item.color} />
             <li>{item.name}</li>
           </Button>
         ))}
