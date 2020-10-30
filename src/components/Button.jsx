@@ -4,14 +4,14 @@ function Button({
   children,
   className,
   addTask,
-  addCategory,
   removeItem,
   toggleVisible,
+  addAndToggle,
 }) {
   return (
     <button
       className={className}
-      onClick={addTask || addCategory || removeItem || toggleVisible}
+      onClick={addTask || removeItem || toggleVisible || addAndToggle}
     >
       {children}
     </button>

@@ -4,7 +4,7 @@ import Colors from "../Colors";
 
 import "./categories.scss";
 
-function Categories({ items, addCategory, colors }) {
+function Categories({ items, addCategory, colors, newCategory }) {
   const [visible, setVisible] = React.useState(false);
 
   const [selectedColor, setSelectedColor] = React.useState(colors[0].id);
@@ -13,12 +13,10 @@ function Categories({ items, addCategory, colors }) {
     setVisible(!visible);
   };
 
-  // const [category, setCategory] = React.useState("");
-
-  // const newCategory = (e) => {
-  //   const value = e.target.value;
-  //   setCategory(value);
-  // };
+  const addAndToggle = () => {
+    addCategory();
+    setVisible(!visible);
+  };
 
   return (
     <div className="todo_categories">
@@ -32,31 +30,26 @@ function Categories({ items, addCategory, colors }) {
       </ul>
 
       <div className="todo_addCategory">
-        <Button
-          toggleVisible={toggleVisible}
-          style={{ display: visible ? "flex" : "none" }}
-        >
-          Добавить категорию
-        </Button>
+        <Button toggleVisible={toggleVisible}>Добавить новую папку</Button>
         {visible && (
           <div className="todo_popup">
             <input
               className="newField"
               type="text"
               placeholder="Новая папка..."
-              // onChange={newCategory}
+              onChange={newCategory}
             />
             <div className="color">
               {colors.map((color) => (
                 <Colors
                   onClick={() => setSelectedColor(color.id)}
-                  color={color.name}
+                  color={color.color}
                   key={color.id}
                   className={selectedColor === color.id && "active"}
                 />
               ))}
             </div>
-            <Button addCategory={addCategory}>Добавить</Button>
+            <Button addAndToggle={addAndToggle}>Добавить</Button>
           </div>
         )}
       </div>

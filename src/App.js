@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 import Categories from "./components/Categories/Categories";
 import NewTask from "./components/NewTask";
 import Task from "./components/Task";
 
 import "./app.scss";
-import DB from './assets/colors.json'
+import DB from "./assets/colors.json";
 
 function App() {
-
   const [task, SetTask] = React.useState([
     {
       text: "Сделать дизайн Todo",
@@ -21,88 +20,105 @@ function App() {
 
   const [categories, SetCategories] = React.useState([
     {
-      name: 'Frontend',
-      hex: '#C2C54F',
-      color: 'yellow'
+      name: "Frontend",
+      hex: "#C2C54F",
+      color: "yellow",
+    },
+    {
+      name: "Backend",
+      hex: "#339494",
+      color: "blue",
+    },
+    {
+      name: "Покупки",
+      hex: "#419433",
+      color: "green",
+    },
+    {
+      name: "Срочные",
+      hex: "#F90000",
+      color: "red",
+    },
+  ]);
 
-    },
-    {
-      name: 'Backend',
-      hex: '#339494',
-      color: 'blue'
-    },
-    {
-      name: 'Покупки',
-      hex: '#419433',
-      color: 'green'
-    },
-    {
-      name: 'Срочные',
-      hex: '#F90000',
-      color: 'red'
-    }
-  ])
+  const [category, setCategory] = React.useState([]);
 
-  const addCategory = (name) => {
+  
+
+  const newCategory = (e) => {
+    setCategory(
+      {
+        name: e.target.value,
+        
+      }
+    )
+  }
+
+  const addCategory = () => {
     SetCategories((prevCategory) => [
       ...prevCategory,
-        name
-    ])
-  }
+      { name: category.name },
+    ]);
+    setCategory("");
+  };
 
   const onAddText = (text) => {
     SetTask((prevTask) => [
       ...prevTask,
       {
         text,
-        complited: false
-      }
-    ])}
+        complited: false,
+      },
+    ]);
+  };
 
-    const toggleComplited = (index) => {
-      SetTask((prevTask) => prevTask.map((task, currIndex) => {
-        if(index === currIndex) {
+  const toggleComplited = (index) => {
+    SetTask((prevTask) =>
+      prevTask.map((task, currIndex) => {
+        if (index === currIndex) {
           return {
             ...task,
-            complited: !task.complited
-          }
+            complited: !task.complited,
+          };
         }
-        return task
-      }))
-    }
+        return task;
+      })
+    );
+  };
 
-    const onRemoveItem = (index) => {
-      SetTask((prevTask) => prevTask.filter((_, currIndex) => {
-        if(index !== currIndex) {
-          return true
+  const onRemoveItem = (index) => {
+    SetTask((prevTask) =>
+      prevTask.filter((_, currIndex) => {
+        if (index !== currIndex) {
+          return true;
         }
-        return false
-      }))
-    }
-
+        return false;
+      })
+    );
+  };
 
   return (
     <div className="todo">
-      <Categories items={categories} addCategory={addCategory} colors={DB.colors}/>
+      <Categories
+        items={categories}
+        addCategory={addCategory}
+        newCategory={newCategory}
+        colors={DB.colors}
+      />
       <div className="todo_list">
         <h1>Frontend</h1>
-        <NewTask 
-          onAddText={onAddText} 
+        <NewTask onAddText={onAddText} />
+
+        {task.map((item, index) => (
+          <Task
+            item={item.text}
+            index={index}
+            key={`${item}_${index}`}
+            complited={item.complited}
+            toggleComplited={toggleComplited}
+            onRemoveItem={onRemoveItem}
           />
-        
-          {
-            task.map((item,index) => 
-              (<Task 
-                item={item.text} 
-                index={index} 
-                key={`${item}_${index}`} 
-                complited={item.complited} 
-                toggleComplited={toggleComplited} 
-                onRemoveItem={onRemoveItem}
-              />)
-            )
-          }
-        
+        ))}
       </div>
     </div>
   );

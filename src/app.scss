@@ -88,6 +88,11 @@ body {
     &:active {
       transform: translateY(3px);
       transition: all 0.1s;
+      background: #c3c3c3;
+    }
+
+    &:hover {
+      background: #c3c3c3;
     }
   }
 
@@ -113,6 +118,10 @@ body {
         transform: translateY(3px);
         transition: 0.1s;
       }
+
+      &:hover {
+        color: #c5c5c5;
+      }
     }
   }
 
@@ -135,7 +144,6 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
     input {
@@ -173,10 +181,6 @@ body {
         transition: all 0.1s;
       }
     }
-  }
-
-  &_tasks {
-    display: block;
   }
 
   &_task {
