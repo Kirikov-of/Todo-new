@@ -41,7 +41,7 @@ body {
 
       li {
         font-weight: 400;
-        margin-left: 14px;
+        margin-left: 10px;
         font-size: 18px;
         color: #0b0b0b;
       }
@@ -52,22 +52,41 @@ body {
         border-radius: 50px;
         margin-top: 3px;
         margin-left: 10px;
-        background: #ec9f2b;
 
-        &--yellow {
-          background-color: #c2c54f;
+        &--mango {
+          background-color: #fc856c;
         }
 
-        &--blue {
-          background-color: #339494;
+        &--orange {
+          background-color: #febb5b;
+        }
+
+        &--lime {
+          background-color: #c9fc6f;
         }
 
         &--green {
-          background-color: #419433;
+          background-color: #22e51c;
         }
 
-        &--red {
-          background-color: #f90000;
+        &--ocean {
+          background-color: #20f5e8;
+        }
+
+        &--celestial {
+          background-color: #41c2fa;
+        }
+
+        &--orris {
+          background-color: #8fa6fd;
+        }
+
+        &--fuchsia {
+          background-color: #f140ff;
+        }
+
+        &--deeppink {
+          background-color: #c71585;
         }
       }
     }

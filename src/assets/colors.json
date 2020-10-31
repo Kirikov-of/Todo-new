@@ -1,4 +1,26 @@
 {
+    "categories": [
+        {
+            "name": "Frontend",
+            "id": 1,
+            "colorId": 1
+        },
+        {
+            "name": "Backend",
+            "id": 2,
+            "colorId": 3
+        },
+        {
+            "name": "Покупки",
+            "id": 3,
+            "colorId": 4
+        },
+        {
+            "name": "Срочные",
+            "id": 4,
+            "colorId": 6
+        }
+    ],
     "colors": [
         {"id": 1, "hex": "#FC856C", "color": "mango"},
         {"id": 2, "hex": "#FEBB5B", "color": "orange"},

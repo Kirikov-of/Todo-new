@@ -18,48 +18,20 @@ function App() {
     },
   ]);
 
-  const [categories, SetCategories] = React.useState([
-    {
-      name: "Frontend",
-      hex: "#C2C54F",
-      color: "yellow",
-    },
-    {
-      name: "Backend",
-      hex: "#339494",
-      color: "blue",
-    },
-    {
-      name: "Покупки",
-      hex: "#419433",
-      color: "green",
-    },
-    {
-      name: "Срочные",
-      hex: "#F90000",
-      color: "red",
-    },
-  ]);
-
-  const [category, setCategory] = React.useState([]);
+  const [category, setCategory] = React.useState(
+    DB.categories.map(item => {
+      item.color = DB.colors.filter(color => color.id === item.colorId)[0].color;
+      return item;
+  }));
 
   
 
-  const newCategory = (e) => {
-    setCategory(
-      {
-        name: e.target.value,
-        
-      }
-    )
-  }
-
-  const addCategory = () => {
-    SetCategories((prevCategory) => [
-      ...prevCategory,
-      { name: category.name },
-    ]);
-    setCategory("");
+  const addCategory = (obj) => {
+    const list = [
+      ...category,
+      obj
+    ]
+    setCategory(list);
   };
 
   const onAddText = (text) => {
@@ -100,9 +72,8 @@ function App() {
   return (
     <div className="todo">
       <Categories
-        items={categories}
+        items={category}
         addCategory={addCategory}
-        newCategory={newCategory}
         colors={DB.colors}
       />
       <div className="todo_list">
