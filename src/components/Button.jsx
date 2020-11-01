@@ -7,6 +7,7 @@ function Button({
   removeItem,
   toggleVisible,
   addAndToggle,
+  onKeyUp,
 }) {
   return (
     <button

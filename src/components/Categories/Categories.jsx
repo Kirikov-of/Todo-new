@@ -32,6 +32,12 @@ function Categories({ items, colors, addCategory }) {
     setInputValue("");
   };
 
+  const enterCat = (e) => {
+    if (e.keyCode === 13) {
+      addAndToggle();
+    }
+  };
+
   return (
     <div className="todo_categories">
       <ul>
@@ -53,6 +59,7 @@ function Categories({ items, colors, addCategory }) {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Новая папка..."
               value={inputValue}
+              onKeyUp={enterCat}
             />
             <div className="color">
               {colors.map((color) => (
