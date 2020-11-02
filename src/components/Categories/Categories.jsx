@@ -1,52 +1,66 @@
 import React from "react";
 import Button from "../Button";
 import Colors from "../Colors";
+import classnames from "classnames";
+import axios from "axios";
 
 import "./categories.scss";
 
-function Categories({ items, colors, addCategory }) {
+function Categories({ items, colors, addCategory, onClickItem, activeItem }) {
   const [visible, setVisible] = React.useState(false);
-  const [selectedColor, setSelectedColor] = React.useState(colors[0].id);
+  const [selectedColor, setSelectedColor] = React.useState(3);
   const [inputValue, setInputValue] = React.useState("");
+
+  React.useEffect(() => {
+    if (Array.isArray(colors)) {
+      setSelectedColor(colors[0].id);
+    }
+  }, [colors]);
 
   const addCat = () => {
     if (!inputValue) {
       alert("Введите название папки");
       return;
     }
-    const color = colors.filter((c) => c.id === selectedColor)[0].color;
-    addCategory({
-      name: inputValue,
-      id: Math.random(),
-      color,
-    });
+    axios
+      .post("http://localhost:3001/categories", {
+        name: inputValue,
+        colorId: selectedColor,
+      })
+      .then(({ data }) => {
+        const color = colors.filter((color) => color.id === selectedColor)[0];
+        const listObj = { ...data, color, tasks: [] };
+        addCategory(listObj);
+        setVisible(!visible);
+      });
   };
 
   const toggleVisible = () => {
     setVisible(!visible);
   };
 
-  const addAndToggle = () => {
-    addCat();
-    setVisible(!visible);
-    setInputValue("");
-  };
-
   const enterCat = (e) => {
     if (e.keyCode === 13) {
-      addAndToggle();
+      addCat();
     }
   };
 
   return (
     <div className="todo_categories">
       <ul>
-        {items.map((item, id) => (
-          <Button key={`${item.name}_${id}`} className="todo_category">
-            <Colors color={item.color} />
-            <li>{item.name}</li>
-          </Button>
-        ))}
+        {items &&
+          items.map((item, index) => (
+            <Button
+              key={`${item.name}_${index}`}
+              className={classnames("todo_category", {
+                active: activeItem && activeItem.id === item.id,
+              })}
+              onClickItem={onClickItem ? () => onClickItem(item) : null}
+            >
+              <Colors color={item.color.color} />
+              <li>{item.name}</li>
+            </Button>
+          ))}
       </ul>
 
       <div className="todo_addCategory">
@@ -71,7 +85,7 @@ function Categories({ items, colors, addCategory }) {
                 />
               ))}
             </div>
-            <Button addAndToggle={addAndToggle}>Добавить</Button>
+            <Button addCat={addCat}>Добавить</Button>
           </div>
         )}
       </div>

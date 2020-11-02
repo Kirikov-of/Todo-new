@@ -1,37 +1,30 @@
 import React from "react";
 import Button from "./Button";
+import axios from "axios";
 
-function NewTask({ onAddText }) {
-  const [Text, setText] = React.useState("");
+function NewTask({ list, onAddTask }) {
+  const [inputValue, setInputValue] = React.useState("");
 
-  const inputTask = (event) => {
-    const value = event.target.value;
-    setText(value);
-  };
-
-  const addTask = () => {
-    if (Text) {
-      onAddText(Text);
-      setText("");
-    }
-  };
-
-  const enterTask = (e) => {
-    if (e.keyCode === 13) {
-      addTask();
-    }
+  const AddTask = () => {
+    const obj = {
+      text: inputValue,
+      complited: false,
+      categoryId: list.id,
+    };
+    axios.post("http://localhost:3001/tasks", obj).then(({ data }) => {
+      onAddTask(list.id, data);
+    });
   };
 
   return (
     <div className="todo_addTask">
       <input
         type="text"
-        onKeyUp={enterTask}
         placeholder="Добавить задачу..."
-        value={Text}
-        onChange={inputTask}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
       />
-      <Button addTask={addTask}>Добавить</Button>
+      <Button AddTask={AddTask}>Добавить</Button>
     </div>
   );
 }

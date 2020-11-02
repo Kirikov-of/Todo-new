@@ -1,0 +1,95 @@
+{
+  "tasks": [
+    {
+      "text": "Сделать дизайн Todo",
+      "complited": true,
+      "categoryId": 1,
+      "id": 1
+    },
+    {
+      "text": "Написать приложение",
+      "complited": false,
+      "categoryId": 1,
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "Frontend",
+      "id": 1,
+      "colorId": 1
+    },
+    {
+      "name": "Backend",
+      "id": 2,
+      "colorId": 3
+    },
+    {
+      "name": "Покупки",
+      "id": 3,
+      "colorId": 4
+    },
+    {
+      "name": "Срочные",
+      "id": 4,
+      "colorId": 6
+    },
+    {
+      "name": "Книги",
+      "colorId": 9,
+      "id": 5
+    },
+    {
+      "name": "Тренировки",
+      "colorId": 2,
+      "id": 6
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "hex": "#FC856C",
+      "color": "mango"
+    },
+    {
+      "id": 2,
+      "hex": "#FEBB5B",
+      "color": "orange"
+    },
+    {
+      "id": 3,
+      "hex": "#C9FC6F",
+      "color": "lime"
+    },
+    {
+      "id": 4,
+      "hex": "#22E51C",
+      "color": "green"
+    },
+    {
+      "id": 5,
+      "hex": "#20F5E8",
+      "color": "ocean"
+    },
+    {
+      "id": 6,
+      "hex": "#41C2FA",
+      "color": "celestial"
+    },
+    {
+      "id": 7,
+      "hex": "#8FA6FD",
+      "color": "orris"
+    },
+    {
+      "id": 8,
+      "hex": "#F140FF",
+      "color": "fuchsia"
+    },
+    {
+      "id": 9,
+      "hex": "#C71585",
+      "color": "deeppink"
+    }
+  ]
+}

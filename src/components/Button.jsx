@@ -3,15 +3,15 @@ import React from "react";
 function Button({
   children,
   className,
-  addTask,
-  removeItem,
+  AddTask,
   toggleVisible,
-  addAndToggle,
+  addCat,
+  onClickItem,
 }) {
   return (
     <button
       className={className}
-      onClick={addTask || removeItem || toggleVisible || addAndToggle}
+      onClick={toggleVisible || addCat || onClickItem || AddTask}
     >
       {children}
     </button>

@@ -16,13 +16,13 @@ body {
 
 .todo {
   position: relative;
-  top: 80px;
+  top: 50px;
   display: flex;
   width: 1060px;
-  min-height: 790px;
+  min-height: 690px;
   background: #f7f7f7;
   border-radius: 15px;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 
   &_categories {
     width: 340px;
@@ -30,7 +30,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
       inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    min-height: 790px;
+    min-height: 690px;
 
     ul {
       display: flex;
@@ -42,10 +42,11 @@ body {
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
       li {
-        font-weight: 400;
         margin-left: 10px;
         font-size: 18px;
-        color: #0b0b0b;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
 
       .colors {
@@ -149,7 +150,7 @@ body {
 
   &_list {
     width: 720px;
-    min-height: 790px;
+    min-height: 690px;
 
     h1 {
       margin-top: 45px;
@@ -205,6 +206,15 @@ body {
     }
   }
 
+  &_tasks {
+    h2 {
+      font-size: 30px;
+      text-align: center;
+      margin-top: 50px;
+      color: #a8a8a8;
+    }
+  }
+
   &_task {
     display: flex;
     align-items: center;
@@ -216,7 +226,7 @@ body {
       margin-bottom: 15px;
     }
 
-    h2 {
+    p {
       flex: 1 1;
       margin-left: 10px;
       font-style: italic;
