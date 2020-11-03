@@ -7,11 +7,12 @@ function Button({
   toggleVisible,
   addCat,
   onClickItem,
+  removeTask,
 }) {
   return (
     <button
       className={className}
-      onClick={toggleVisible || addCat || onClickItem || AddTask}
+      onClick={toggleVisible || addCat || onClickItem || AddTask || removeTask}
     >
       {children}
     </button>

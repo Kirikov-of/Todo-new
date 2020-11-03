@@ -48,6 +48,46 @@ function App() {
     }
   }, [category, history.location.pathname])
 
+  const onRemoveTask = (categoryId , taskId) => {
+    if (window.confirm("Вы действительно хотите удалить задачу?")) {
+      const newList = category.map(item => {
+        if(item.id === categoryId) {
+          item.tasks = item.tasks.filter(task => task.id !== taskId)
+        }
+        return item
+      })
+      setCategory(newList)
+      axios
+        .delete('http://localhost:3001/tasks/' + taskId)
+        .catch(() => {
+          alert('Не удалось удалить задачу')
+        })
+    }
+  };
+
+
+  const onCompleteTask = (categoryId , taskId, completed) => {
+    const newList = category.map(item => {
+      if(item.id === categoryId) {
+        item.tasks = item.tasks.map(task => {
+          if(task.id === taskId) {
+            task.completed = completed
+          }
+          return task;
+        })
+      }
+      return item
+    })
+    setCategory(newList)
+    axios
+      .patch('http://localhost:3001/tasks/' + taskId, {
+        completed
+      })
+      .catch(() => {
+        alert('Не удалось завершить задачу')
+      })
+  }
+
   return (
     <div className="todo">
       <Categories
@@ -61,7 +101,7 @@ function App() {
       />
       <Route path='/'>
       {category && activeItem && (
-        <List list={activeItem} category={activeItem} onAddTask={onAddTask} />
+        <List onCompleteTask={onCompleteTask} list={activeItem} category={activeItem} onAddTask={onAddTask} onRemoveTask={onRemoveTask}/>
       )}
       </Route>
     </div>

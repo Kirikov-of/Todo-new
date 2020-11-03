@@ -1,22 +1,10 @@
 {
   "tasks": [
     {
-      "text": "Сделать дизайн Todo",
-      "complited": true,
+      "text": "Разработать ToDo",
+      "completed": true,
       "categoryId": 1,
       "id": 1
-    },
-    {
-      "text": "Написать приложение",
-      "complited": false,
-      "categoryId": 1,
-      "id": 2
-    },
-    {
-      "text": "убраться",
-      "complited": false,
-      "categoryId": 7,
-      "id": 3
     }
   ],
   "categories": [

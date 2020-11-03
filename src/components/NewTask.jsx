@@ -8,7 +8,7 @@ function NewTask({ list, onAddTask }) {
   const AddTask = () => {
     const obj = {
       text: inputValue,
-      complited: false,
+      completed: false,
       categoryId: list.id,
     };
     axios.post("http://localhost:3001/tasks", obj).then(({ data }) => {
