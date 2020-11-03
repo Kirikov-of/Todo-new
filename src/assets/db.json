@@ -11,6 +11,12 @@
       "complited": false,
       "categoryId": 1,
       "id": 2
+    },
+    {
+      "text": "убраться",
+      "complited": false,
+      "categoryId": 7,
+      "id": 3
     }
   ],
   "categories": [
@@ -43,6 +49,11 @@
       "name": "Тренировки",
       "colorId": 2,
       "id": 6
+    },
+    {
+      "name": "Личное",
+      "colorId": 8,
+      "id": 7
     }
   ],
   "colors": [
