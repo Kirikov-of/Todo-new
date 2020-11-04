@@ -40,58 +40,6 @@ body {
       margin-top: 25px;
       list-style: none;
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
-      li {
-        margin-left: 10px;
-        font-size: 18px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-
-      .colors {
-        width: 10px;
-        height: 10px;
-        border-radius: 50px;
-        margin-top: 3px;
-        margin-left: 10px;
-
-        &--mango {
-          background-color: #fc856c;
-        }
-
-        &--orange {
-          background-color: #febb5b;
-        }
-
-        &--lime {
-          background-color: #c9fc6f;
-        }
-
-        &--green {
-          background-color: #22e51c;
-        }
-
-        &--ocean {
-          background-color: #20f5e8;
-        }
-
-        &--celestial {
-          background-color: #41c2fa;
-        }
-
-        &--orris {
-          background-color: #8fa6fd;
-        }
-
-        &--fuchsia {
-          background-color: #f140ff;
-        }
-
-        &--deeppink {
-          background-color: #c71585;
-        }
-      }
     }
   }
 
@@ -110,11 +58,78 @@ body {
     &:active {
       transform: translateY(3px);
       transition: all 0.1s;
-      background: #c3c3c3;
+      background: #d6d6d6;
     }
 
     &:hover {
-      background: #c3c3c3;
+      background: #d6d6d6;
+    }
+
+    p {
+      flex: 1;
+      margin-left: 10px;
+      font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .remove {
+      display: flex;
+      justify-content: center;
+      width: 30px;
+      cursor: pointer;
+      margin-right: 5px;
+
+      &:hover {
+        path {
+          fill: #1f1f1f;
+        }
+      }
+    }
+
+    .colors {
+      width: 10px;
+      height: 10px;
+      border-radius: 50px;
+      margin-top: 3px;
+      margin-left: 10px;
+
+      &--mango {
+        background-color: #fc856c;
+      }
+
+      &--orange {
+        background-color: #febb5b;
+      }
+
+      &--lime {
+        background-color: #c9fc6f;
+      }
+
+      &--green {
+        background-color: #22e51c;
+      }
+
+      &--ocean {
+        background-color: #20f5e8;
+      }
+
+      &--celestial {
+        background-color: #41c2fa;
+      }
+
+      &--orris {
+        background-color: #8fa6fd;
+      }
+
+      &--fuchsia {
+        background-color: #f140ff;
+      }
+
+      &--deeppink {
+        background-color: #c71585;
+      }
     }
   }
 
@@ -160,6 +175,16 @@ body {
       font-weight: bold;
       font-size: 34px;
       color: #2fe6ff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    h2 {
+      font-size: 30px;
+      text-align: center;
+      margin-top: 50px;
+      color: #a8a8a8;
     }
   }
 
@@ -206,15 +231,6 @@ body {
     }
   }
 
-  &_tasks {
-    h2 {
-      font-size: 30px;
-      text-align: center;
-      margin-top: 50px;
-      color: #a8a8a8;
-    }
-  }
-
   &_task {
     display: flex;
     align-items: center;
@@ -224,6 +240,12 @@ body {
 
     &:last-child {
       margin-bottom: 15px;
+    }
+
+    input {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
     }
 
     p {
@@ -249,37 +271,6 @@ body {
 
     &-complite {
       text-decoration-line: line-through;
-
-      .circle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 24.13px;
-        height: 24px;
-        border-radius: 50px;
-        background: #1d6bf3;
-        cursor: pointer;
-        border: 1px solid #1d6bf3;
-      }
-    }
-
-    &-uncomplite {
-      .circle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 24.13px;
-        height: 24px;
-        border-radius: 50px;
-        background-color: #f1f1f1;
-        border: 1px solid #cccccc;
-        cursor: pointer;
-
-        &:hover {
-          background: #1d6bf3;
-          border: 1px solid #1d6bf3;
-        }
-      }
     }
   }
 }

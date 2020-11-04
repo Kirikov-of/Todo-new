@@ -6,6 +6,10 @@ function NewTask({ list, onAddTask }) {
   const [inputValue, setInputValue] = React.useState("");
 
   const AddTask = () => {
+    if (!inputValue) {
+      alert("Введите название задачи");
+      return;
+    }
     const obj = {
       text: inputValue,
       completed: false,
@@ -14,6 +18,7 @@ function NewTask({ list, onAddTask }) {
     axios.post("http://localhost:3001/tasks", obj).then(({ data }) => {
       onAddTask(list.id, data);
     });
+    setInputValue("");
   };
 
   return (

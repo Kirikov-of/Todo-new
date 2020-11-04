@@ -66,6 +66,8 @@ function App() {
   };
 
 
+
+
   const onCompleteTask = (categoryId , taskId, completed) => {
     const newList = category.map(item => {
       if(item.id === categoryId) {
@@ -93,6 +95,11 @@ function App() {
       <Categories
         onClickItem={category => {
           history.push(`/categories/${category.id}`)
+        }}
+        onRemove={id => 
+        {
+          const newCat = category.filter((item) => item.id !== id)
+          setCategory(newCat)
         }}
         activeItem={activeItem}
         items={category}
