@@ -41,12 +41,12 @@ function App() {
   };
 
   React.useEffect(() => {
-    const categoryId = history.location.pathname.split('categories/')[1]
+    const categoryId = location.pathname.split('categories/')[1]
     if(category) {
       const cat = category.find(category => category.id === Number(categoryId))
       setActiveItem(cat);
     }
-  }, [category, history.location.pathname])
+  }, [category, location.pathname])
 
   const onRemoveTask = (categoryId , taskId) => {
     if (window.confirm("Вы действительно хотите удалить задачу?")) {
