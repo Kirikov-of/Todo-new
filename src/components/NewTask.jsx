@@ -6,7 +6,7 @@ function NewTask({ list, onAddTask }) {
   const [inputValue, setInputValue] = React.useState("");
 
   const AddTask = () => {
-    if (!inputValue) {
+    if (!inputValue.trim()) {
       alert("Введите название задачи");
       return;
     }

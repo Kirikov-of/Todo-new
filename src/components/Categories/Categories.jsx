@@ -36,7 +36,7 @@ function Categories({
   }, [colors]);
 
   const addCat = () => {
-    if (!inputValue) {
+    if (!inputValue.trim()) {
       alert("Введите название папки");
       return;
     }
